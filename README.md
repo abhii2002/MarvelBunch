@@ -1,5 +1,5 @@
 # MarvelBunch
- Marvel Application which uses Marvel Api to fetch data 
+ Introducing the Ultimate Marvel App (MarvelBunch) – your gateway to the captivating universe of Marvel superheroes and stories! The app leverages the power of the Marvel API to seamlessly fetch and present a vast array of data.
 
 
  # Download
