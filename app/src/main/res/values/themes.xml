@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MarvelBunch" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:statusBarColor"></item>
+    </style>
+
+
+
+    <style name="Theme.MarvelBunch" parent="Base.Theme.MarvelBunch" />
+
+    <style name="Dialog.theme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+
+        <item name="colorAccent">#363636</item>
+        <!--        <item name="colorPrimary">@color/colorPrimary</item>-->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+    </style>
+</resources>
