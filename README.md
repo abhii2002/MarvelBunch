@@ -8,7 +8,7 @@
 # Tech stack & Open-source libraries. 
  - Minimum SDK level 24
 - [Kotlin](https://kotlinlang.org/) based, [Coroutines](https://developer.android.com/kotlin/coroutines) + [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) for asynchronous.
-  -Moshi: A JSON library developed by Square. Moshi enables us to serialize and deserialize JSON in a more efficient and straightforward manner.
+  - Moshi: A JSON library developed by Square. Moshi enables us to serialize and deserialize JSON in a more efficient and straightforward manner.
   - LiveData: LiveData is an observable data holder class that is lifecycle aware.
   - ViewModel: Manages UI-related data holder and lifecycle aware. Allows data to survive configuration changes such as screen rotations.
 -  Architecture 
