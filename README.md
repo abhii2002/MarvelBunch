@@ -4,7 +4,7 @@
 ![love lINK (1)](https://github.com/abhii2002/MarvelBunch/assets/87520905/5b7d37e6-8f0c-4938-8a6c-818564f5c3e6)
 
  # Download
- Download the app from [here]()
+ Download the app from [here](https://github.com/abhii2002/MarvelBunch/releases/tag/v1.0.0)
  
 # Tech stack & Open-source libraries. 
  - Minimum SDK level 24
