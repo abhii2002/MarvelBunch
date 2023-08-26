@@ -17,3 +17,6 @@
 -  Architecture 
    - MVVM: Model-View-ViewModel (MVVM) is a software design pattern that is structured to separate program logic and user interface controls.
 - [Lottie](https://github.com/airbnb/lottie-android): Render After Effects animations natively on Android and iOS, Web, and React Native
+
+https://github.com/abhii2002/MarvelBunch/assets/87520905/7566c5be-4b4e-487a-bca7-3e96cafa142f
+
