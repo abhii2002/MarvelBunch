@@ -8,7 +8,9 @@ import com.example.marvelbunch.constants.Constants
 import com.example.marvelbunch.databinding.ActivityEventsDetailBinding
 import com.example.marvelbunch.models.Characters
 import com.example.marvelbunch.models.Events
-import com.google.gson.Gson
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
 class EventsDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEventsDetailBinding
@@ -23,8 +25,9 @@ class EventsDetailActivity : AppCompatActivity() {
         var eventsModel: Events? = null
 
         if(intent.hasExtra(Constants.EVENTS_DETAILS)){
-            val gson = Gson()
-            eventsModel = gson.fromJson(intent.getStringExtra(Constants.EVENTS_DETAILS), Events::class.java)
+            val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
+            val jsonAdapter: JsonAdapter<Events> = moshi.adapter(Events::class.java)
+            eventsModel = jsonAdapter.fromJson(intent.getStringExtra(Constants.EVENTS_DETAILS)!!)
 
 
         }

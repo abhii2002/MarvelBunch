@@ -15,12 +15,15 @@ import com.example.marvelbunch.adapters.EventsAdapter
 import com.example.marvelbunch.constants.Constants
 import com.example.marvelbunch.constants.ScreenState
 import com.example.marvelbunch.databinding.FragmentEventsBinding
+import com.example.marvelbunch.models.Characters
 import com.example.marvelbunch.models.Events
 
 import com.example.marvelbunch.models.EventsModel
 import com.example.marvelbunch.viewmodel.SharedViewModel
 import com.google.android.material.snackbar.Snackbar
-import com.google.gson.Gson
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
 class EventsFragment : Fragment() {
 
@@ -66,8 +69,9 @@ class EventsFragment : Fragment() {
 
             adapter.setOnClickListener(object : EventsAdapter.OnClickListener{
                 override fun onClick(position: Int, model: Events) {
-                    val gson = Gson()
-                    var jSonModel = gson.toJson(model)
+                    val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
+                    val jsonAdapter: JsonAdapter<Events> = moshi.adapter(Events::class.java)
+                    var jSonModel = jsonAdapter.toJson(model)
                     val intent = Intent(context, EventsDetailActivity::class.java)
                     intent.putExtra(Constants.EVENTS_DETAILS, jSonModel)
                     startActivity(intent)

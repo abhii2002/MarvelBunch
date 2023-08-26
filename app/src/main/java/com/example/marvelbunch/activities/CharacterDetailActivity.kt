@@ -6,7 +6,9 @@ import coil.load
 import com.example.marvelbunch.models.Characters
 import com.example.marvelbunch.constants.Constants
 import com.example.marvelbunch.databinding.ActivityCharacterDetailBinding
-import com.google.gson.Gson
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
 class CharacterDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCharacterDetailBinding
@@ -21,8 +23,10 @@ class CharacterDetailActivity : AppCompatActivity() {
         var characterModel: Characters? = null
 
         if(intent.hasExtra(Constants.CHARACTER_DETAILS)){
-            val gson = Gson()
-            characterModel = gson.fromJson(intent.getStringExtra(Constants.CHARACTER_DETAILS), Characters::class.java)
+
+            val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
+            val jsonAdapter: JsonAdapter<Characters> = moshi.adapter(Characters::class.java)
+            characterModel = jsonAdapter.fromJson(intent.getStringExtra(Constants.CHARACTER_DETAILS)!!)
 
 
         }

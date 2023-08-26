@@ -19,7 +19,10 @@ import com.example.marvelbunch.constants.ScreenState
 import com.example.marvelbunch.databinding.FragmentCharacterBinding
 import com.example.marvelbunch.viewmodel.SharedViewModel
 import com.google.android.material.snackbar.Snackbar
-import com.google.gson.Gson
+
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
 class CharacterFragment : Fragment() {
 
@@ -65,8 +68,9 @@ class CharacterFragment : Fragment() {
 
             adapter.setOnClickListener(object : CharacterAdapter.OnClickListener{
                 override fun onClick(position: Int, model: Characters) {
-                    val gson = Gson()
-                    var jSonModel = gson.toJson(model)
+                     val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
+                    val jsonAdapter: JsonAdapter<Characters> = moshi.adapter(Characters::class.java)
+                    var jSonModel = jsonAdapter.toJson(model)
                    val intent = Intent(context, CharacterDetailActivity::class.java)
                     intent.putExtra(Constants.CHARACTER_DETAILS, jSonModel)
                     startActivity(intent)
